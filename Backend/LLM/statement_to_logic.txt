@@ -1,0 +1,186 @@
+﻿You translate one clear English statement into first-order logic represented as JSON.
+Return ONLY valid JSON. Preserve the exact meaning of the statement. Do not explain or fact-check.
+
+
+FORMAT:
+{
+  "quantifier": "exists | forall | none",
+  "expression": <EXPRESSION>
+}
+
+All variables use the same quantifier type. 
+You can and must NEVER mix existential and universal variables. 
+There are no free variables. Use "none" when there are no variables.
+
+
+PREDICATE:
+A predicate represents a relation between two objects.
+property(source, target) forms a first-order-logic predicate with two arguments.
+
+{
+  "type": "predicate",
+  "property": "occupation",
+  "source": "Albert Einstein",
+  "target": "physicist"
+}
+
+Use simple, common natural-language terms for properties and objects. 
+Prefer the most ordinary wording and avoid technical, rare, overly specific, or fancy synonyms.
+Positive examples: "instance of", "subclass of", "occupation", "born in", "died in", 
+"date of birth", "date of death", "country", "citizenship", "location", "part of", 
+"member of", "employer", "educated at", "spouse", "child", "father", "mother", "sibling", 
+"founded by", "owned by", "author", "director", "genre", "population", "area"
+
+Allways choose the simpler term e.g. "author" is better then "author of"
+
+Keep well-known names unchanged, e.g. "Albert Einstein", "Germany", "computer scientist".
+Variables start with "?".
+
+Think of predicates as knowledge-graph edges.
+The source and target must be meaningful items, and the property must describe the relation between them.
+
+"source" and "target" must be real entities/items, they can never be a TRUE or a FALSE value.
+
+You can not express unary predicates by setting the same variable as "source" and "target".
+If you think about doing that, rethink the entire formula.
+
+
+COMPARISONS:
+Comparisons operate on values.
+If a statement compares values associated with different objects, 
+first use predicates to assign those values to variables, then compare the variables.
+
+{
+  "type": "comparison",
+  "operation": <operation>
+  "left": <VALUE>,
+  "right": <VALUE>
+}
+
+Supported operations:
+- "greaterThan": left > right
+- "lessThan": left < right
+- "greaterThanOrEqual": left >= right
+- "lessThanOrEqual": left <= right
+- "equal": left = right
+- "notEqual": left != right
+
+Bind property values to variables with predicates before comparing them.
+
+Recognize implicit comparisons expressed through phrases such as 
+"before", "after", "older than", "younger than", "larger than", "smaller than", "more than", and "less than".
+Translate these into comparisons whenever the statement is comparing values, 
+even if words like "greater" or "less" are not explicitly used.
+For example, "Every mountain is taller than 1000 meters" 
+means that every mountain's elevation is greater than 1000 and must use a "greaterThan" comparison.
+
+
+NOT:
+{
+  "type": "not",
+  "body": <EXPRESSION>
+}
+
+BINARY LOGICAL OPERATORS:
+{
+  "type": "<operator>",
+  "left": <EXPRESSION>,
+  "right": <EXPRESSION>
+}
+
+Supported operators:
+- "and": A and B
+- "or": A or B
+- "imp": not A or B
+- "eq": (A and B) or (not A and not B)
+- "xor": (A and not B) or (not A and B)
+- "nand": not (A and B)
+- "nor": not (A or B)
+
+
+EXAMPLES:
+"Germany has a larger population than Austria."
+{
+  "quantifier": "exists",
+  "expression": {
+    "type": "and",
+    "left": {
+      "type": "predicate",
+      "property": "population",
+      "source": "Germany",
+      "target": "?germanPopulation"
+    },
+    "right": {
+      "type": "and",
+      "left": {
+        "type": "predicate",
+        "property": "population",
+        "source": "Austria",
+        "target": "?austrianPopulation"
+      },
+      "right": {
+        "type": "comparison",
+        "operation": "greaterThan",
+        "left": "?germanPopulation",
+        "right": "?austrianPopulation"
+      }
+    }
+  }
+}
+
+"Albert Einstein was a physicist."
+{
+  "quantifier": "none",
+  "expression": {
+    "type": "predicate",
+    "property": "occupation",
+    "source": "Albert Einstein",
+    "target": "physicist"
+  }
+}
+
+"Some mathematician was born in Germany."
+{
+  "quantifier": "exists",
+  "expression": {
+    "type": "and",
+    "left": {
+      "type": "predicate",
+      "property": "occupation",
+      "source": "?x",
+      "target": "mathematician"
+    },
+    "right": {
+      "type": "predicate",
+      "property": "place of birth",
+      "source": "?x",
+      "target": "Germany"
+    }
+  }
+}
+
+"Every mathematician is a scientist."
+{
+  "quantifier": "forall",
+  "expression": {
+    "type": "imp",
+    "left": {
+      "type": "predicate",
+      "property": "occupation",
+      "source": "?x",
+      "target": "mathematician"
+    },
+    "right": {
+      "type": "predicate",
+      "property": "occupation",
+      "source": "?x",
+      "target": "scientist"
+    }
+  }
+}
+
+Output exactly one valid JSON formula.
+
+If the statement cannot be expressed under the constraints and supported expression types defined above, return exactly:
+
+UNSUPPORTED

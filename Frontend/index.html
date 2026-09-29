@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="LIAR verifies factual statements and shows what is true, false, or unknown."
+    />
+    <meta name="theme-color" content="#07100f" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23071110'/%3E%3Cpath d='M18 15v34h28' fill='none' stroke='%23d5ff3f' stroke-width='8' stroke-linecap='square'/%3E%3C/svg%3E"
+    />
+    <title>LIAR — Statement Verification</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient-grid" aria-hidden="true"></div>
+
+    <main class="shell">
+      <header class="masthead">
+        <a class="brand" href="#" aria-label="LIAR home">
+          <span class="brand-mark" aria-hidden="true">L</span>
+          <span>LIAR</span>
+        </a>
+
+        <div id="system-state" class="system-state checking" role="status" aria-live="polite">
+          <span class="pulse" aria-hidden="true"></span>
+          <span id="system-state-label">Checking verification system…</span>
+        </div>
+      </header>
+
+      <section class="workspace" aria-labelledby="workspace-title">
+        <div class="intro">
+          <h1 id="workspace-title">Interrogate A.I.</h1>
+          <p class="lede">
+            Paste an AI output or other natural language text below.
+          </p>
+        </div>
+
+        <form id="verification-form" class="verification-form">
+          <label for="source-text">Source text</label>
+          <div class="input-frame">
+            <textarea
+              id="source-text"
+              name="text"
+              rows="10"
+              maxlength="10000"
+              placeholder="Enter your plain text here…"
+              aria-describedby="character-count"
+              required
+            ></textarea>
+            <div id="highlighted-text" class="highlighted-text" aria-label="Verified text" hidden></div>
+            <div class="input-meta">
+              <span id="character-count">0 / 10,000</span>
+            </div>
+          </div>
+
+          <div id="result-statistics" class="result-statistics" aria-label="Verification statistics" hidden></div>
+
+          <button id="verify-button" type="submit">
+            <span class="button-label">Verify statements</span>
+            <span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+        </form>
+
+        <div id="message" class="message" role="alert" hidden></div>
+      </section>
+
+      <footer>
+        <span>LIAR — Tobias Bonauer · Henrik Oback · Julian Tschurtschenthaler</span>
+      </footer>
+    </main>
+
+    <div id="proof-popover" class="proof-popover" role="tooltip" hidden></div>
+  </body>
+</html>

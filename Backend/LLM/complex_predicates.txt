@@ -1,0 +1,47 @@
+﻿instance of,is a,is an,type of,kind of,belongs to class,class of,classified as,categorized as,is classified as,is categorized as,is an
+wdt:P31/wdt:P279*
+Expresses that an entity is an instance of a given class, including when its direct class is a more specific subclass of that class.
+
+relative of,related to,family member of,blood relative of,relative,family relation,family connection,kin of,kinship,related by blood,blood relation,blood relation of,family of,member of the same family,biologically related to,familial relation,familially related to
+{1,5}(wdt:P22|^wdt:P22|wdt:P25|^wdt:P25|wdt:P40|^wdt:P40|wdt:P3373|^wdt:P3373)
+Expresses that two people are relatives through one or more parent, child, or sibling relationships, including indirect family connections such as grandparents, grandchildren, aunts, uncles, cousins, and other blood relatives.
+
+region,country,continent,located in,situated in,lies in,within,geographically in,location,in,located at,situated at,found in,positioned in,based in,belongs to,part of the area of,inside,contained in,geographic location,location of,place of,part of
+{1,5}(wdt:P131|wdt:P17|wdt:P30)
+Expresses that a geographic entity is directly or indirectly located within another geographic region, including through administrative territories, countries, and continents.
+
+born,birthplace,place of birth,birth location,born location,native,is from,origin
+wdt:P19/{1,5}(wdt:P131|wdt:P17|wdt:P30)
+Expresses that a person was born at the given place or at a place geographically contained within the given region, country, or continent.
+
+occupation,profession,job,career,works as,worked as,employed as
+wdt:P106/wdt:P279*
+Expresses that a person has the given occupation, either directly or through a more specific occupation that is a subclass of it.
+
+place of death,death location
+wdt:P20/{1,5}(wdt:P131|wdt:P17|wdt:P30)
+Expresses that a person died at a given place or within a geographic region containing their place of death.
+
+employed by,worked at,works at,employer
+wdt:P108/{0,3}wdt:P361
+Expresses that a person was employed by the given organization or by an organization that is part of it.
+
+position,position held,office,held office,served as,was appointed as,occupation,profession,job,career,works as,worked as,employed as
+wdt:P39/wdt:P279*
+Expresses that a person held the given position or a more specific position that is a subclass of it.
+
+died of,cause of death,death caused by,cause of death was
+wdt:P509/wdt:P279*
+Expresses that a person's recorded cause of death is the given cause or a more specific subtype of that cause.
+
+received award,won award,awarded,won,received prize,honored with
+wdt:P166/wdt:P279*
+Expresses that a person or organization received the given award or a more specific award that is a subtype of it.
+
+has descendant,descendant,descendants
+wdt:P40+
+Expresses that the first person is an ancestor of the second person through one to five generations of child relationships.
+
+capital of,capital,capitals
+^wdt:P36
+Expresses that the first entity is the capital of the second entity.

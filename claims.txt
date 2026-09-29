@@ -1,0 +1,25 @@
+Albert Einstein was a physicist.
+
+Barack Obama was President of the United States.
+
+Marie Curie won the Nobel Prize in Physics and was born in Poland.
+
+Berlin is the capital of Germany, while Paris is the capital of France.
+
+Germany has a larger population than Austria and Mount Everest is more than 8,000 metres high.
+
+Reinickendorf is located in Berlin, Berlin is located in Germany, and Germany is located in Europe, thus Reinickendorf is in Europe.
+
+The Pacific Ocean is larger than the Atlantic Ocean.
+
+The Moon orbits Earth, while Earth orbits the Sun.
+
+There is a country in Europe that has Germany as a neighboring country.
+
+There is a computer scientist who won the Turing Award.
+
+There is no mathematician who won the Turing Award.
+
+Every mathematician is from germany.
+
+Every mathematician won a Turing Award.

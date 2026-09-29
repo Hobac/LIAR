@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="LLM\complex_predicates.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>complex_predicates.txt</TargetPath>
+    </Content>
+    <Content Include="LLM\resolve_formula.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>resolve_formula.txt</TargetPath>
+    </Content>
+    <Content Include="LLM\synonym_finder.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>synonym_finder.txt</TargetPath>
+    </Content>
+    <Content Include="LLM\statement_extraction.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>statement_extraction.txt</TargetPath>
+    </Content>
+    <Content Include="LLM\statement_to_logic.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>statement_to_logic.txt</TargetPath>
+    </Content>
+    <Content Include="LLM\api_key.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>api_key.txt</TargetPath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="F23.StringSimilarity" Version="7.0.1" />
+  </ItemGroup>
+
+</Project>

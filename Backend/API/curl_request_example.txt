@@ -1,0 +1,1 @@
+﻿curl -X POST http://localhost:8080/check -H "Content-Type: text/plain" -d "Albert Einstein was an physisist and did not win the Nobel Prizze for physics."

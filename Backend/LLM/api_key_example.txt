@@ -1,0 +1,13 @@
+# Copy this file to "api_key.txt" (same folder) and fill in your own values.
+# api_key.txt is gitignored, so your key never gets committed.
+
+# Which provider to use: "openai" or "deepseek"
+provider=deepseek
+
+# Model name as expected by the provider's API, e.g.:
+#   openai:   gpt-5.6-luna
+#   deepseek: deepseek-chat
+model=deepseek-chat
+
+# Your API key for the chosen provider
+api_key=sk-your-key-here
